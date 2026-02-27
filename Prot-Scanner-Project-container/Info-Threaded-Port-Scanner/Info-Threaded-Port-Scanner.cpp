@@ -2,8 +2,6 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 
-
-
 // C++ standard library headers for threading, synchronization, and timing.
 #include <thread>
 #include <vector>
@@ -37,7 +35,7 @@ std::mutex output_mutex;
 int rate_limit = 0; // connections per second
 std::atomic<int> connections_this_second(0);
 
-void rateLimiter() // This thread will reset the connection count every second to enforce the rate limit.
+void static rateLimiter() // This thread will reset the connection count every second to enforce the rate limit.
 {
     while (current_port <= end_port_global)
     {
@@ -46,7 +44,7 @@ void rateLimiter() // This thread will reset the connection count every second t
     }
 }
 
-void scanPort(int timeout_ms) // Each thread will execute this function, which will continuously fetch the next port to scan until we exceed the end port.
+void static scanPort(int timeout_ms) // Each thread will execute this function, which will continuously fetch the next port to scan until we exceed the end port.
 {
     while (true)
     {
@@ -89,7 +87,7 @@ void scanPort(int timeout_ms) // Each thread will execute this function, which w
 			int bytes = recv(sock, buffer, sizeof(buffer) - 1, 0); // recv() syntax is recv(int sockfd, void *buf, size_t len, int flags), this returns the number of bytes received, or -1 on error.
 
 			std::lock_guard<std::mutex> lock(output_mutex); // Ensure thread-safe output.
-			std::cout << "[OPEN] Port " << port;
+			std::cout << "OPEN Port: [" << port << "]";
 
 			if (bytes > 0) // If we received data, print the banner.
             {
@@ -138,6 +136,9 @@ int main(int argc, char* argv[])
 
     if (argc >= 7)
         rate_limit = std::stoi(argv[6]);
+
+    std::cout << "Starting scan on [" << target_ip << "] from port [" << start_port << "] to [" << end_port_global 
+		<< "] with " << thread_count << " threads.\n";
 
     current_port = start_port;
 
