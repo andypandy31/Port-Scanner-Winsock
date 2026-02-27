@@ -1,0 +1,9 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Info-Threaded-Port-Scanner/Info-Threaded-Port-Scanner.vcxproj" Id="eee873ed-767b-4e69-9043-9c825d167fc9" />
+  <Project Path="Non-Threaded-Port-Scanner/Non-Threaded-Port-Scanner.vcxproj" Id="c87a4636-c326-43c8-9821-7a5e9a99e885" />
+  <Project Path="Threaded-Port-Scanner/Threaded-Port-Scanner.vcxproj" Id="c1e6a136-0bf9-435d-b844-da114e15b4fd" />
+</Solution>
