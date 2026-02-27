@@ -428,3 +428,5 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+Prot-Scanner-Project-container/Info-Threaded-Port-Scanner/Info-Threaded-Port-Scanner.vcxproj
+Prot-Scanner-Project-container/Info-Threaded-Port-Scanner/Info-Threaded-Port-Scanner.vcxproj.filters
