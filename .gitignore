@@ -431,3 +431,5 @@ FodyWeavers.xsd
 Prot-Scanner-Project-container/Info-Threaded-Port-Scanner/Info-Threaded-Port-Scanner.vcxproj
 Prot-Scanner-Project-container/Info-Threaded-Port-Scanner/Info-Threaded-Port-Scanner.vcxproj.filters
 Prot-Scanner-Project-container/Prot-Scanner-Project-container.slnx
+Prot-Scanner-Project-container/Prot-Scanner-Project-container.slnx
+*.slnx
